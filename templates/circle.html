@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Circle Calculator</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter Radius of the Circle" required="required" />
+
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="perimeter">perimeter</option>
+            <option value="area">area</option>
+
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+    {% if printed_result %}
+        <p style="text-align: center; font-weight: bold; color: red; font-size: 20px">{{ printed_result }}</p>
+    {% elif error %}
+        <p style="text-align: center; color: red;">{{ error }}</p>
+    {% endif %}
+
+{% endblock %}
